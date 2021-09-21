@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "cXKL4dg9tRzRiAN7KBOk4o/T39iXqiw6xMogGOe0UGIjGiE2RI9u6WLC5/gwSkHf8pmWZ4boEil+fDhHYvWN0Q==",
+  "success": true,
+  "projectFilePath": "d:\\ProjCursos\\apirest\\apirest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LenovoSSD\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\LenovoSSD\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\LenovoSSD\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\LenovoSSD\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\LenovoSSD\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\LenovoSSD\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
