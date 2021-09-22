@@ -2,6 +2,7 @@ using System.Linq;
 using apirest.Data;
 using apirest.Models;
 using Microsoft.AspNetCore.Mvc;
+using apirest.HATEOAS;
 
 namespace apirest.Controllers
 {
@@ -10,9 +11,13 @@ namespace apirest.Controllers
     public class ProdutosController : ControllerBase
     {
         private readonly ApplicationDbContext database;
-
+        private HATEOAS.HATEOAS HATEOAS;
         public ProdutosController(ApplicationDbContext database) {
             this.database = database;
+            HATEOAS = new HATEOAS.HATEOAS("localhost:5001/api/Produtos");
+            HATEOAS.AddAction("DELETE_PRODUCT","DELETE");
+            HATEOAS.AddAction("EDIT_PRODUCT","PATCH");
+            
         }
 
         [HttpGet]
@@ -25,8 +30,13 @@ namespace apirest.Controllers
          public IActionResult PegarProdutos(int id){
             try
             {
-                var produtos = database.Produtos.First(p => p.Id == id);
-                return Ok(produtos); //retorna 200 com dados
+                Produto produto = database.Produtos.First(p => p.Id == id);
+
+                ProdutoContainer produtoHATEOAS = new ProdutoContainer();
+                produtoHATEOAS.produto = produto;
+                produtoHATEOAS.links = HATEOAS.GetActions();
+
+                return Ok(produtoHATEOAS); //retorna 200 com dados
             }
             catch (System.Exception e)
             {
@@ -104,6 +114,11 @@ namespace apirest.Controllers
             public int Id {get;}
             public string Nome {get; set;}
             public float Preco {get; set;}
+        }
+
+        public class ProdutoContainer{
+            public Produto produto;
+            public Link[] links;
         }
     }
 }
