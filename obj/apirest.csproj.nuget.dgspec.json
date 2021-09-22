@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\projetosgit\\apirest\\apirest.csproj": {}
+    "C:\\projetosgit\\apirest\\apirest.csproj": {}
   },
   "projects": {
-    "c:\\projetosgit\\apirest\\apirest.csproj": {
+    "C:\\projetosgit\\apirest\\apirest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\projetosgit\\apirest\\apirest.csproj",
+        "projectUniqueName": "C:\\projetosgit\\apirest\\apirest.csproj",
         "projectName": "apirest",
-        "projectPath": "c:\\projetosgit\\apirest\\apirest.csproj",
+        "projectPath": "C:\\projetosgit\\apirest\\apirest.csproj",
         "packagesPath": "C:\\Users\\cleverson.silva\\.nuget\\packages\\",
-        "outputPath": "c:\\projetosgit\\apirest\\obj\\",
+        "outputPath": "C:\\projetosgit\\apirest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4wQrgkbwVvsHn/djAHxZCfw+yWKci/lNPEWe/Gw7iCXXl+WfGcqxwi/Vme0TwCcL17MS3No/5ZWTuN48rxZaSw==",
+  "dgSpecHash": "XV0psay54x3rkKfE1XZPK+CuwRk5S8Fg/RQz0Zh7YFdFoEWCGnSNF86ICH5y8v8isFb2hv4KWS+mVGR1czmAYg==",
   "success": true,
-  "projectFilePath": "c:\\projetosgit\\apirest\\apirest.csproj",
+  "projectFilePath": "C:\\projetosgit\\apirest\\apirest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cleverson.silva\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\cleverson.silva\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0-preview.5.21301.9\\microsoft.entityframeworkcore.6.0.0-preview.5.21301.9.nupkg.sha512",

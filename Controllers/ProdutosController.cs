@@ -37,6 +37,19 @@ namespace apirest.Controllers
 
         [HttpPost]
         public IActionResult SalvarProduto([FromBody] ProdutoTemp pTemp){
+
+            if (pTemp.Preco <= 0) {
+                Response.StatusCode = 400;
+                return new ObjectResult(new {msg = "O preço do produto deve ser maior que zero!"});
+            }
+
+            if (pTemp.Nome.Trim().Length <=1)
+            {
+                Response.StatusCode = 400;
+                return new ObjectResult (new {msg = "O nome do produto precisar ter mais que um caracter!"});
+            }
+
+
             Produto p = new Produto();
             p.Nome = pTemp.Nome;
             p.Preco = pTemp.Preco;
@@ -63,7 +76,32 @@ namespace apirest.Controllers
             
         }
 
+         [HttpPatch]
+         public IActionResult Editar([FromBody] Produto pTemp){
+            try
+            {
+                var produtos = database.Produtos.First(p => p.Id == pTemp.Id);
+                if (produtos != null)
+                {
+                    produtos.Nome = pTemp.Nome != null && pTemp.Nome.Trim().Length > 0 ? pTemp.Nome : produtos.Nome;
+                    produtos.Preco = pTemp.Preco > 0 ? pTemp.Preco : produtos.Preco;
+                    database.SaveChanges();
+                    return Ok(); //retorna 200 com dados
+                }
+                else {
+                    Response.StatusCode = 400;
+                    return new ObjectResult(new {msg = "Produto não encontrado!"});
+                }
+            }
+            catch (System.Exception e)
+            {
+                var mensagem = e.Message.ToString();
+                return BadRequest(new {msg = mensagem});
+            }
+        }
+
         public class ProdutoTemp{
+            public int Id {get;}
             public string Nome {get; set;}
             public float Preco {get; set;}
         }
