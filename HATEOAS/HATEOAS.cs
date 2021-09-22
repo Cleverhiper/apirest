@@ -25,6 +25,7 @@ namespace apirest.HATEOAS
         public Link[] GetActions()
         {
             return actions.ToArray();
+            
         }
     }
 }
