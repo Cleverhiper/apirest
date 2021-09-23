@@ -24,10 +24,22 @@ namespace apirest.HATEOAS
             Console.WriteLine($"Protocolo: {this.protocol + this.url} Rel: {rel}  Metodo: {method}");
         }
 
-        public Link[] GetActions()
+        public Link[] GetActions(string sufixo)
         {
-            return actions.ToArray();
+            Link[] tempLinks = new Link[actions.Count];
+
+            for (int i=0; i<tempLinks.Length; i++){
+                tempLinks[i] = new Link(actions[i].href, actions[i].rel,actions[i].method);
+            }
+
+
+            //Montagem do Link
             
+            foreach(var link in tempLinks) {
+                link.href = link.href + "/"+ sufixo.ToString();
+            }
+
+            return tempLinks;
         }
     }
 }

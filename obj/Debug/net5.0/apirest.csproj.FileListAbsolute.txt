@@ -94,3 +94,4 @@ C:\projetosgit\apirest\obj\Debug\net5.0\apirest.dll
 C:\projetosgit\apirest\obj\Debug\net5.0\ref\apirest.dll
 C:\projetosgit\apirest\obj\Debug\net5.0\apirest.pdb
 C:\projetosgit\apirest\obj\Debug\net5.0\apirest.genruntimeconfig.cache
+D:\ProjCursos\apirest\bin\Debug\net5.0\Newtonsoft.Json.dll

@@ -3,6 +3,8 @@ using apirest.Data;
 using apirest.Models;
 using Microsoft.AspNetCore.Mvc;
 using apirest.HATEOAS;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace apirest.Controllers
 {
@@ -23,7 +25,14 @@ namespace apirest.Controllers
         [HttpGet]
         public IActionResult PegarProdutos(){  
             var produtos = database.Produtos.ToList();
-            return Ok(produtos); //retorna 200 com dados
+            List<ProdutoContainer> produtosHATEOAS = new List<ProdutoContainer>();
+            foreach (var prod in produtos){
+                ProdutoContainer produtoHATEOAS  = new ProdutoContainer();
+                produtoHATEOAS.produto = prod;
+                produtoHATEOAS.links = HATEOAS.GetActions(prod.Id.ToString());
+                produtosHATEOAS.Add(produtoHATEOAS);
+            }
+            return Ok(JsonConvert.SerializeObject(produtosHATEOAS)); //retorna 200 com dados
         }
 
         [HttpGet("{id}")]
@@ -34,9 +43,10 @@ namespace apirest.Controllers
 
                 ProdutoContainer produtoHATEOAS = new ProdutoContainer();
                 produtoHATEOAS.produto = produto;
-                produtoHATEOAS.links = HATEOAS.GetActions();
+                produtoHATEOAS.links = HATEOAS.GetActions(produto.Id.ToString());
                 Response.StatusCode = 200;
-                return Ok(new {produtoHATEOAS.produto, produtoHATEOAS.links}); //retorna 200 com dados
+                //return Ok(new {produtoHATEOAS.produto, produtoHATEOAS.links}); //retorna 200 com dados
+                return Ok(JsonConvert.SerializeObject(produtoHATEOAS));
             }
             catch (System.Exception e)
             {
