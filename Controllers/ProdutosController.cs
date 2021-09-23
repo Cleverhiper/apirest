@@ -27,7 +27,7 @@ namespace apirest.Controllers
         }
 
         [HttpGet("{id}")]
-         public IActionResult PegarProdutos(int id){
+         public IActionResult Get(int id){
             try
             {
                 Produto produto = database.Produtos.First(p => p.Id == id);
@@ -35,8 +35,8 @@ namespace apirest.Controllers
                 ProdutoContainer produtoHATEOAS = new ProdutoContainer();
                 produtoHATEOAS.produto = produto;
                 produtoHATEOAS.links = HATEOAS.GetActions();
-
-                return Ok(produtoHATEOAS); //retorna 200 com dados
+                Response.StatusCode = 200;
+                return Ok(new {produtoHATEOAS.produto, produtoHATEOAS.links}); //retorna 200 com dados
             }
             catch (System.Exception e)
             {

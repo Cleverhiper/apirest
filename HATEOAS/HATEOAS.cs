@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace apirest.HATEOAS
 {
@@ -20,6 +21,7 @@ namespace apirest.HATEOAS
         public void AddAction(string rel, string method)
         {
             actions.Add(new Link(this.protocol + this.url,rel,method));
+            Console.WriteLine($"Protocolo: {this.protocol + this.url} Rel: {rel}  Metodo: {method}");
         }
 
         public Link[] GetActions()
