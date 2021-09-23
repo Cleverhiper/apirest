@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using apirest.HATEOAS;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace apirest.Controllers
 {
     [Route ("/api/[Controller]")]
     [ApiController]
+    [Authorize]
     public class ProdutosController : ControllerBase
     {
         private readonly ApplicationDbContext database;

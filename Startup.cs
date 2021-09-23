@@ -13,6 +13,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace apirest
 {
@@ -33,6 +36,23 @@ namespace apirest
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(connectionString)));
 
+            string chaveDeSeguranca = "Chave Secreta do Projeto Api Rest";
+            var chaveSimetrica = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(chaveDeSeguranca));
+
+            //Informa o Sistema que vamos usar JWT
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
+                //Informa como será feita a authenticação
+                options.TokenValidationParameters= new TokenValidationParameters{
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    //Dados de validação de um JWT
+                    ValidIssuer = "Projeto API Rest",
+                    ValidAudience = "Usuario Comum",
+                    IssuerSigningKey = chaveSimetrica
+                };
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -51,6 +71,7 @@ namespace apirest
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication(); //Aplica o sistema de autenticacao
 
             app.UseRouting();
 

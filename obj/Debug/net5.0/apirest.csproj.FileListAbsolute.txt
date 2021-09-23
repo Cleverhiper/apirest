@@ -95,3 +95,11 @@ C:\projetosgit\apirest\obj\Debug\net5.0\ref\apirest.dll
 C:\projetosgit\apirest\obj\Debug\net5.0\apirest.pdb
 C:\projetosgit\apirest\obj\Debug\net5.0\apirest.genruntimeconfig.cache
 D:\ProjCursos\apirest\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\projetosgit\apirest\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
